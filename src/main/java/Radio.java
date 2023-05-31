@@ -31,22 +31,34 @@ public class Radio {
     }
 
     public void next() {
-        currentStation = currentStation >= 9 ? 0 : ++currentStation;
-        setCurrentStation(currentStation);
+        if (currentStation >= 9) {
+            currentStation = 0;
+        } else {
+            setCurrentStation(currentStation + 1);
+        }
     }
 
     public void prev() {
-        currentStation = currentStation <= 0 ? 9 : --currentStation;
-        setCurrentStation(currentStation);
+        if (currentStation <= 0) {
+            currentStation = 9;
+        } else {
+            setCurrentStation(currentStation - 1);
+        }
     }
 
     public void nextVol() {
-        currentVolume = currentVolume >= 100 ? 100 : ++currentVolume;
-        setCurrentStation(currentVolume);
+        if (currentVolume >= 100) {
+            currentVolume = 100;
+        } else {
+            setCurrentVolume(currentVolume + 1);
+        }
     }
 
     public void prevVol() {
-        currentVolume = currentVolume <= 0 ? 0 : --currentVolume;
-        setCurrentStation(currentVolume);
+        if (currentVolume <= 0) {
+            currentVolume = 0;
+        } else {
+            setCurrentVolume(currentVolume - 1);
+        }
     }
 }
